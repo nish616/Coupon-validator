@@ -1,39 +1,67 @@
 import React, { useState, useEffect } from "react";
-import Form from "../components/Form";
-import Button from "../components/Button";
 import axios from "../axios";
 
 function Checkout() {
-  const [discount , setDiscount] = useState([]);
+  
+  const [inputFields, setInputFields] = useState({
+    cartTotal : "",
+    couponName : ""
+  });
+  const [discount , setDiscount] = useState();
 
-  useEffect(() => {
-    
-  },[]);
-
-  async function validateCoupon(newNote) {
-     axios.post("/", {
-      name : newNote.title
+   function validateCoupon(event) {
+    axios.post("/checkout/validateCoupon", {
+       cartTotal : inputFields.cartTotal,
+       couponName : inputFields.couponName
     }, {
-     headers: {
-       'Content-Type': 'application/json'
-     }
-    }).then((res) => {console.log(res)}).catch((err) => {console.log(err)});
-
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then((res) => {
+      console.log(res);
+      setDiscount(res.data.Discount);
+    })
+    .catch((err) => {
+      if(err) console.log(err);
+    });
+    
+    //event.preventDefault();
   }   
+
+  function handleChange(event){
+    const { name: fieldName, value: fieldValue } = event.target;
+
+    setInputFields((prevValue) => {
+      if (fieldName === "cartTotal") {
+        return {
+          cartTotal: fieldValue,
+          couponName: prevValue.couponName
+        };
+      } else if (fieldName === "couponCode") {
+        return {
+          cartTotal: prevValue.cartTotal,
+          couponName: fieldValue
+        };
+      }
+    });
+  }
+
 
   return (
     <div className="">
-      <Form
-      label1 ="Total Amount"
-      label2 = "Coupon code"
-      type1 = "text" 
-      type2 = "text" 
-      />
-      <p className="discount">{discount}</p>
-      <Button
-      button = "submit"
-      onClick = {validateCoupon} 
-      />
+      
+        <div>
+           <label> Cart Total</label>
+           <input type="text" name="cartTotal" onChange={handleChange} value={inputFields.cartTotal} />
+        </div>
+        <div>
+          <label> Coupon Code </label>
+            <input type="text" name="couponCode" onChange={handleChange} value={inputFields.couponCode} />
+        </div>
+        <button type="button" onClick={validateCoupon}>Submit</button>
+     
+      <p className="discount">Discounted Value={discount}</p>
+
     </div>
   );
 }
