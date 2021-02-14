@@ -58,8 +58,15 @@ function CreateCoupon(){
             <label className="form-label"> Name</label>
             <input className="form-control" type="text" name="name" ref={register}  />
 
-            <label className="form-label"> Is Active </label>
-            <input className="form-control" type="text" name="isActive" ref={register}   />
+
+            <div class="input-group mb-3 mt-4">
+                <label class="input-group-text" for="inputGroupSelect01">Is Active</label>
+                <select class="form-select" id="inputGroupSelect01" name="isActive" ref={register} required>
+                    <option selected>Choose...</option>
+                    <option name="isActive" value="true">true</option>
+                    <option name="isActive" value="false">false</option>
+                </select>
+            </div>
 
             <label className="form-label"> Start date </label>
             <input className="form-control" placeholder="yyyy-mm-dd" type="text" name="start" ref={register}   />
@@ -72,7 +79,7 @@ function CreateCoupon(){
                 <select class="form-select" onChange={handleChange} id="inputGroupSelect01" name="isPercent" ref={register} required>
                     <option selected>Choose...</option>
                     <option name="isPercent" value="true">Percentage discount</option>
-                    <option name="isPercent" value="false">Flast discount</option>
+                    <option name="isPercent" value="false">Flat discount</option>
                 </select>
             </div>
 
