@@ -18,8 +18,8 @@ Note : Coupon List also contains expired coupons added for testing.
 ### Validate Coupon
 
 Submit the form with cart total value and coupon code to check coupon is applicable or not.
-if coupon is expired or cart total does not satisfy coupon minimum amount coupon is not applicable. If it is applicable the discounted amount from the cart total is displayed.
+If coupon is expired or cart total does not satisfy coupon minimum amount coupon is not applicable. If it is applicable the discounted amount from the cart total is displayed.
 
 ### Create Coupon
  **Important** cannot create multiple coupons with the same name.
- submit the form to create new coupons.
+ Submit the form to create new coupons.
