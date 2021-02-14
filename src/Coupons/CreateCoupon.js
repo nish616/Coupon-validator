@@ -84,7 +84,7 @@ function CreateCoupon(){
             </div>
 
             <label className="form-label"> Percentage </label>
-            <input className="form-control" type="text" name="percent" ref={register}   disabled={disable} />
+            <input className="form-control" type="text" name="percent" ref={register} required   disabled={disable} />
 
             <label className="form-label"> Minimum cart amount </label>
             <input className="form-control" type="text" name="minAmount" ref={register}   />
