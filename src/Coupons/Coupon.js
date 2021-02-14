@@ -2,9 +2,9 @@ import React from "react";
 
 function Coupon(props) {
   return (
-    <div className="coupon">
-      <h1>{props.name}</h1>
-      <p>{props.description}</p>
+    <div className="card-body">
+      <h5 className="card-title">{props.name}</h5>
+      <p className="card-text">{props.description}</p>
     </div>
   );
 }
