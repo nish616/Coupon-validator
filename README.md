@@ -23,3 +23,8 @@ If coupon is expired or cart total does not satisfy coupon minimum amount coupon
 ### Create Coupon
  **Important** cannot create multiple coupons with the same name.
  Submit the form to create new coupons.
+
+### API is deployed in heroku.
+baseURL : https://sleepy-hamlet-70742.herokuapp.com
+
+**ADD baseURL in axios.js**
