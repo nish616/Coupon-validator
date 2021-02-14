@@ -18,7 +18,7 @@ function Validate() {
   const notify = () => toast("Coupon not Applicable!");
 
   function validateCoupon(event) {
-    axios.post("/checkout/validateCoupon", {
+    axios.post("/validate/validateCoupon", {
        cartTotal : inputFields.cartTotal,
        couponName : inputFields.couponName
     }, {
