@@ -25,7 +25,8 @@ function CouponList() {
         <Coupon
         key = {uuidv4()}
         name = {item.name}
-        description = {item.description} 
+        description = {item.description}
+        end = {`Expires on ${item.end.split('T')[0]}`} 
         />
       );
     })}

@@ -62,17 +62,16 @@ function CreateCoupon(){
             <div class="input-group mb-3 mt-4">
                 <label class="input-group-text" for="inputGroupSelect01">Is Active</label>
                 <select class="form-select" id="inputGroupSelect01" name="isActive" ref={register} required>
-                    <option selected>Choose...</option>
                     <option name="isActive" value="true">true</option>
                     <option name="isActive" value="false">false</option>
                 </select>
             </div>
 
             <label className="form-label"> Start date </label>
-            <input className="form-control" placeholder="yyyy-mm-dd" type="text" name="start" ref={register}   />
+            <input className="form-control" placeholder="yyyy-mm-dd" type="text" name="start" ref={register} required  />
 
             <label className="form-label"> End date </label>
-            <input className="form-control" placeholder="yyyy-mm-dd" type="text" name="end" ref={register}  />
+            <input className="form-control" placeholder="yyyy-mm-dd" type="text" name="end" ref={register} required />
 
             <div class="input-group mb-3 mt-4">
                 <label class="input-group-text" for="inputGroupSelect01">Type</label>
@@ -87,13 +86,13 @@ function CreateCoupon(){
             <input className="form-control" type="text" name="percent" ref={register} required   disabled={disable} />
 
             <label className="form-label"> Minimum cart amount </label>
-            <input className="form-control" type="text" name="minAmount" ref={register}   />
+            <input className="form-control" type="text" name="minAmount" ref={register} required  />
 
             <label className="form-label"> Max discount value </label>
-            <input className="form-control" type="text" name="maxAmount" ref={register}   />
+            <input className="form-control" type="text" name="maxAmount" ref={register} required  />
 
             <label className="form-label"> Description </label>
-            <input className="form-control" type="text" name="description" ref={register}   />
+            <input className="form-control" type="text" name="description" ref={register} required   />
 
             <input className="btn btn-primary mb-3" type="submit" />
         </form>
