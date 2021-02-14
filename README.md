@@ -13,7 +13,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 ### CouponList
 
 Click on Coupon List in the nav bar to see the list of available coupons.  
-**Note : Coupon List also contains expired coupons added for testing.
+**Note** : Coupon List also contains expired coupons added for testing.
 
 ### Validate Coupon
 
