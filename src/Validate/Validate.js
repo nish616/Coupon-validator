@@ -10,12 +10,13 @@ function Validate() {
     couponName : ""
   });
   const [discount , setDiscount] = useState("");
+  const [totalCost , setTotalCost] = useState("");
 
   useEffect(() => {
     setDiscount("");
   },[inputFields.cartTotal,inputFields.couponName]);
 
-  const notify = () => toast("Coupon not Applicable!");
+  const notify = (message) => toast(message);
 
   function validateCoupon(event) {
     axios.post("/validate/validateCoupon", {
@@ -28,12 +29,13 @@ function Validate() {
     }).then((res) => {
       console.log(res);
       setDiscount(res.data.Discount);
+      setTotalCost(inputFields.cartTotal - res.data.Discount);
     })
     .catch((err) => {
       
       if(err){
-        notify();
-        console.log(err.message);
+        notify(err.response.data.message);
+        console.log(err.response);
       } 
     });
     
@@ -71,7 +73,10 @@ function Validate() {
             <input className="form-control" type="text" name="couponCode" onChange={handleChange} value={inputFields.couponCode} />
         </div>
         <button className="btn btn-primary mb-3" type="button" onClick={validateCoupon}>Submit</button>
+      
       <p className="form-label">{`Discounted Value=${discount}`}</p>
+
+      <p className="form-label">{`Total Amount to be paid =${totalCost}`}</p>
       <ToastContainer />
     </div>
   );
