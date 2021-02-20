@@ -14,6 +14,7 @@ function Validate() {
 
   useEffect(() => {
     setDiscount("");
+    setTotalCost("");
   },[inputFields.cartTotal,inputFields.couponName]);
 
   const notify = (message) => toast(message);
@@ -30,6 +31,7 @@ function Validate() {
       console.log(res);
       setDiscount(res.data.Discount);
       setTotalCost(inputFields.cartTotal - res.data.Discount);
+      notify("Coupon applied!");
     })
     .catch((err) => {
       
